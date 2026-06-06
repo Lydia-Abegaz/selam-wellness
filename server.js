@@ -7,7 +7,19 @@ import { mockExperiences } from './src/data/mockExperiences.js';
 import { mockPractitioners } from './src/data/mockPractitioners.js';
 
 const app = express();
-app.use(cors());
+
+// Explicit CORS config — required for cross-origin requests from Vercel → Railway
+const corsOptions = {
+  origin: '*', // Allow all origins (safe for a public API; restrict to your Vercel URL for extra security)
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+  credentials: false,
+};
+app.use(cors(corsOptions));
+
+// Handle ALL OPTIONS preflight requests globally — this is what fixes the 405
+app.options('*', cors(corsOptions));
+
 app.use(express.json());
 
 const db = new DatabaseSync('database.db');

@@ -17,7 +17,7 @@ export default function RegisterScreen({ navigate, onLogin }) {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('/api/auth/register', {
+      const res = await fetch((import.meta.env.VITE_API_URL || '') + '/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: form.name, email: form.email, password: form.password }),

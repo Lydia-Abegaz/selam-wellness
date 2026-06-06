@@ -13,7 +13,7 @@ export default function CirclesDiscovery({ navigate }) {
   const [showCallModal, setShowCallModal] = useState(false);
 
   useEffect(() => {
-    fetch('/api/circles')
+    fetch((import.meta.env.VITE_API_URL || '') + '/api/circles')
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {

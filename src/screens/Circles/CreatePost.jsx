@@ -16,7 +16,7 @@ export default function CreatePost({ navigate, params }) {
   const handlePost = () => {
     setIsPosting(true);
     
-    fetch('/api/posts', {
+    fetch((import.meta.env.VITE_API_URL || '') + '/api/posts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

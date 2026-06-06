@@ -26,7 +26,7 @@ export default function BookingFlow({ navigate, params }) {
 
   const handleBook = () => {
     setIsProcessing(true);
-    fetch('/api/bookings', {
+    fetch((import.meta.env.VITE_API_URL || '') + '/api/bookings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

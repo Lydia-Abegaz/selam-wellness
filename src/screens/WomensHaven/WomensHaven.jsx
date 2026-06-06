@@ -24,7 +24,7 @@ export default function WomensHaven({ navigate, user }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    fetch('/api/posts?circle=womens')
+    fetch((import.meta.env.VITE_API_URL || '') + '/api/posts?circle=womens')
       .then(r => r.json())
       .then(d => { if (d && d.length) setPosts(d); })
       .catch(err => console.error(err));

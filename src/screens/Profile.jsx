@@ -9,8 +9,8 @@ export default function Profile({ navigate }) {
 
   useEffect(() => {
     Promise.all([
-      fetch('/api/profile').then(r => r.json()),
-      fetch('/api/bookings').then(r => r.json()),
+      fetch((import.meta.env.VITE_API_URL || '') + '/api/profile').then(r => r.json()),
+      fetch((import.meta.env.VITE_API_URL || '') + '/api/bookings').then(r => r.json()),
     ])
     .then(([profileData, bookingsData]) => {
       if (profileData) setProfile(profileData);

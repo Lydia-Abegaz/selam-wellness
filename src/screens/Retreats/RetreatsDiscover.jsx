@@ -9,7 +9,7 @@ export default function RetreatsDiscover({ navigate }) {
   const [experiences, setExperiences] = useState(mockExperiences);
 
   useEffect(() => {
-    fetch('/api/experiences')
+    fetch((import.meta.env.VITE_API_URL || '') + '/api/experiences')
       .then(res => res.json())
       .then(data => { if (data && data.length > 0) setExperiences(data); })
       .catch(err => console.error('Error fetching experiences:', err));

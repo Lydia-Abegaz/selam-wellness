@@ -20,7 +20,7 @@ export default function MoodJournal({ navigate }) {
   const [recommendation, setRecommendation] = useState(null);
 
   useEffect(() => {
-    fetch('/api/mood')
+    fetch((import.meta.env.VITE_API_URL || '') + '/api/mood')
       .then(r => r.json())
       .then(data => setEntries(data))
       .catch(err => console.error(err));
@@ -29,7 +29,7 @@ export default function MoodJournal({ navigate }) {
   const handleSave = () => {
     if (!selectedMood) return;
     setSaving(true);
-    fetch('/api/mood', {
+    fetch((import.meta.env.VITE_API_URL || '') + '/api/mood', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ mood: selectedMood.label, note }),

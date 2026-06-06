@@ -20,9 +20,9 @@ export default function Home({ navigate }) {
   const [experiences, setExperiences] = useState(mockExperiences);
 
   useEffect(() => {
-    fetch('/api/posts').then(r => r.json()).then(d => { if (d && d.length) setPosts(d); }).catch(() => {});
-    fetch('/api/circles').then(r => r.json()).then(d => { if (d && d.length) setCircles(d); }).catch(() => {});
-    fetch('/api/experiences').then(r => r.json()).then(d => { if (d && d.length) setExperiences(d); }).catch(() => {});
+    fetch((import.meta.env.VITE_API_URL || '') + '/api/posts').then(r => r.json()).then(d => { if (d && d.length) setPosts(d); }).catch(() => {});
+    fetch((import.meta.env.VITE_API_URL || '') + '/api/circles').then(r => r.json()).then(d => { if (d && d.length) setCircles(d); }).catch(() => {});
+    fetch((import.meta.env.VITE_API_URL || '') + '/api/experiences').then(r => r.json()).then(d => { if (d && d.length) setExperiences(d); }).catch(() => {});
   }, []);
   return (
     <PageWrapper>

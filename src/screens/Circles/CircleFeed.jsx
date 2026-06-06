@@ -13,12 +13,12 @@ export default function CircleFeed({ navigate, params }) {
   const [dbPosts, setDbPosts] = useState(mockPosts);
 
   useEffect(() => {
-    fetch('/api/circles')
+    fetch((import.meta.env.VITE_API_URL || '') + '/api/circles')
       .then(res => res.json())
       .then(data => { if (data && data.length > 0) setCircles(data); })
       .catch(err => console.error(err));
 
-    fetch('/api/posts')
+    fetch((import.meta.env.VITE_API_URL || '') + '/api/posts')
       .then(res => res.json())
       .then(data => { if (data && data.length > 0) setDbPosts(data); })
       .catch(err => console.error(err));

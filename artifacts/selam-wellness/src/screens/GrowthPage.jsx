@@ -152,8 +152,7 @@ export default function GrowthPage({ navigate }) {
         <div style={{ flex: 1, minWidth: 0 }}>
           {activeSection === 'Lessons' && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: 'var(--color-coffee)', marginBottom: '8px' }}>Learn & Grow</h2>
-              <p style={{ color: 'var(--color-charcoal-soft)', marginBottom: '32px' }}>Micro-lessons on emotional intelligence and wellness.</p>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: 'var(--color-coffee)', marginBottom: '32px' }}>Learn & Grow</h2>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px' }}>
                 {LESSONS_DATA.map(lesson => {
@@ -189,8 +188,7 @@ export default function GrowthPage({ navigate }) {
 
           {activeSection === 'Journal' && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: 'var(--color-coffee)', marginBottom: '8px' }}>Your private journal</h2>
-              <p style={{ color: 'var(--color-charcoal-soft)', marginBottom: '32px' }}>Never shared, never sold.</p>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: 'var(--color-coffee)', marginBottom: '32px' }}>Your private journal</h2>
 
               <div style={{ background: '#FFF', borderRadius: '16px', padding: '20px', border: '1px solid rgba(44,24,16,0.06)', marginBottom: '32px' }}>
                 <textarea
@@ -267,8 +265,7 @@ export default function GrowthPage({ navigate }) {
 
           {activeSection === 'Goals' && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: 'var(--color-coffee)', marginBottom: '8px' }}>Your growth goals</h2>
-              <p style={{ color: 'var(--color-charcoal-soft)', marginBottom: '32px' }}>Small steps lead to big changes.</p>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: 'var(--color-coffee)', marginBottom: '32px' }}>Your growth goals</h2>
 
               <div style={{ display: 'flex', gap: '12px', marginBottom: '32px' }}>
                 <input

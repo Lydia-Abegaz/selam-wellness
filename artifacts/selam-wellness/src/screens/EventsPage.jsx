@@ -38,33 +38,14 @@ export default function EventsPage({ navigate }) {
 
       {/* SECTION 1 - Page Intro */}
       <section style={{ marginBottom: 'var(--space-2xl)' }}>
-        <div style={{
-          fontSize: '13px',
-          fontWeight: '700',
-          color: 'var(--color-terracotta)',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          marginBottom: '8px'
-        }}>
-          Activities & Events
-        </div>
         <h1 style={{
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(28px, 5vw, 36px)',
           color: 'var(--color-coffee)',
-          marginBottom: '12px',
           lineHeight: 1.1
         }}>
           Real experiences. Real healing.
         </h1>
-        <p style={{
-          color: 'var(--color-charcoal-soft)',
-          fontSize: '16px',
-          lineHeight: 1.6,
-          maxWidth: '600px'
-        }}>
-          Wellness retreats, workshops, community events, and practitioner sessions — all aligned with your growth.
-        </p>
       </section>
 
       {/* SECTION 2 - Filter Bar */}
@@ -158,10 +139,6 @@ export default function EventsPage({ navigate }) {
               }}>
                 {event.title}
               </h3>
-
-              <p style={{ fontSize: '14px', color: 'var(--color-charcoal-soft)', lineHeight: 1.5, marginBottom: '20px', flex: 1 }}>
-                {event.description}
-              </p>
 
               <div style={{
                 display: 'flex',

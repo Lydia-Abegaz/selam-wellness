@@ -113,9 +113,6 @@ export default function SelfCareHub({ navigate }) {
             lineHeight: 1.1,
             marginBottom: '12px',
           }}>Nurture Your Natural Selam</h1>
-          <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '15px', lineHeight: 1.7, marginBottom: '24px' }}>
-            Discover the ancient secrets of Ethiopian beauty and self-care, reimagined for the modern spirit.
-          </p>
           <motion.button
             whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
             style={{
@@ -142,9 +139,6 @@ export default function SelfCareHub({ navigate }) {
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: '600', color: 'var(--color-on-surface)' }}>
               Explore the Hub
             </h2>
-            <p style={{ color: 'var(--color-on-surface-variant)', fontSize: '14px', marginTop: '4px' }}>
-              Curated paths inspired by ancestral wisdom and natural elements.
-            </p>
           </div>
           <button style={{ background: 'none', border: 'none', color: 'var(--color-primary)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}>
             View All <ArrowRight size={14} />
@@ -187,12 +181,9 @@ export default function SelfCareHub({ navigate }) {
                   userSelect: 'none',
                 }}>{cat.num}</span>
               </div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: '600', color: 'var(--color-on-surface)', marginBottom: '8px' }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: '600', color: 'var(--color-on-surface)', margin: 0 }}>
                 {cat.label}
               </h3>
-              <p style={{ fontSize: '14px', color: 'var(--color-on-surface-variant)', lineHeight: 1.6 }}>
-                {cat.desc}
-              </p>
             </motion.div>
           ))}
         </div>
@@ -240,9 +231,6 @@ export default function SelfCareHub({ navigate }) {
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: '600', color: 'var(--color-on-surface)', marginBottom: '12px' }}>
               Coffee Ceremony Grounding
             </h3>
-            <p style={{ fontSize: '14px', color: 'var(--color-on-surface-variant)', lineHeight: 1.7, marginBottom: '24px' }}>
-              A 15-minute guided audio experience that turns your morning brew into a meditative ritual of gratitude and presence.
-            </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <div style={{ display: 'flex' }}>
                 {['AJ','MT','+12'].map((u, i) => (
@@ -322,8 +310,7 @@ export default function SelfCareHub({ navigate }) {
                   }}>{item.tag}</span>
                 </div>
               </div>
-              <h4 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--color-on-surface)', marginBottom: '4px' }}>{item.title}</h4>
-              <p style={{ fontSize: '13px', color: 'var(--color-on-surface-variant)', lineHeight: 1.5 }}>{item.desc}</p>
+              <h4 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--color-on-surface)', margin: 0 }}>{item.title}</h4>
             </motion.div>
           ))}
         </div>
@@ -341,10 +328,6 @@ export default function SelfCareHub({ navigate }) {
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 4vw, 36px)', fontWeight: '700', color: 'var(--color-on-surface)', marginBottom: '12px' }}>
             Build Your Flow
           </h2>
-          <p style={{ color: 'var(--color-on-surface-variant)', fontSize: '15px', lineHeight: 1.7, marginBottom: 'var(--space-md)' }}>
-            Answer 3 quick questions to receive a personalized wellness map.
-          </p>
-
           <div style={{ textAlign: 'left', marginBottom: 'var(--space-md)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
               <div style={{

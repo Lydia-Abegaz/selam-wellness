@@ -57,33 +57,14 @@ export default function WomensHaven({ navigate, user }) {
 
       {/* SECTION 1 - Hero Intro */}
       <section style={{ marginBottom: 'var(--space-2xl)' }}>
-        <div style={{
-          fontSize: '13px',
-          fontWeight: '700',
-          color: 'var(--color-rose-deep)',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          marginBottom: '8px'
-        }}>
-          Women's Health
-        </div>
         <h1 style={{
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(28px, 5vw, 36px)',
           color: 'var(--color-coffee)',
-          marginBottom: '12px',
           lineHeight: 1.1
         }}>
           Know your body. Own your health.
         </h1>
-        <p style={{
-          color: 'var(--color-charcoal-soft)',
-          fontSize: '16px',
-          lineHeight: 1.6,
-          maxWidth: '600px'
-        }}>
-          Science-backed resources on women's anatomy, hormonal health, reproductive conditions, and mental wellness. In Amharic and English.
-        </p>
       </section>
 
       {/* SECTION 2 - Health Topics Grid */}
@@ -133,19 +114,10 @@ export default function WomensHaven({ navigate, user }) {
                   fontFamily: 'var(--font-display)',
                   fontSize: '18px',
                   color: 'var(--color-coffee)',
-                  marginBottom: '8px'
+                  margin: 0
                 }}>
                   {topic.title}
                 </h3>
-                
-                <p style={{
-                  fontSize: '14px',
-                  color: 'var(--color-charcoal-soft)',
-                  lineHeight: 1.5,
-                  margin: 0
-                }}>
-                  {topic.summary}
-                </p>
 
                 <AnimatePresence>
                   {isExpanded && (

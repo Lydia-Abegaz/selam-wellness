@@ -3,20 +3,35 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: Selam Wellness API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: auth
+    description: Authentication
+  - name: posts
+    description: Community posts
+  - name: circles
+    description: Wellness circles
+  - name: experiences
+    description: Wellness experiences / retreats
+  - name: practitioners
+    description: Practitioners / healers
+  - name: bookings
+    description: Experience bookings
+  - name: mood
+    description: Mood journal
+  - name: profile
+    description: User profile
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,6 +39,272 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /auth/register:
+    post:
+      operationId: register
+      tags: [auth]
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterInput"
+      responses:
+        "201":
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResult"
+        "400":
+          description: Bad request
+        "409":
+          description: Email already exists
+
+  /auth/login:
+    post:
+      operationId: login
+      tags: [auth]
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginInput"
+      responses:
+        "200":
+          description: Logged in
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResult"
+        "401":
+          description: Invalid credentials
+
+  /posts:
+    get:
+      operationId: getPosts
+      tags: [posts]
+      summary: List posts
+      parameters:
+        - name: circle
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Post"
+    post:
+      operationId: createPost
+      tags: [posts]
+      summary: Create a post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+
+  /posts/{id}/react:
+    post:
+      operationId: reactToPost
+      tags: [posts]
+      summary: Add a reaction to a post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReactionInput"
+      responses:
+        "200":
+          description: Updated reactions
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PostReaction"
+
+  /circles:
+    get:
+      operationId: getCircles
+      tags: [circles]
+      summary: List circles
+      responses:
+        "200":
+          description: List of circles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Circle"
+
+  /circles/{id}/join:
+    post:
+      operationId: joinCircle
+      tags: [circles]
+      summary: Join a circle
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Joined
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CircleMemberCount"
+
+  /experiences:
+    get:
+      operationId: getExperiences
+      tags: [experiences]
+      summary: List experiences
+      responses:
+        "200":
+          description: List of experiences
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Experience"
+
+  /practitioners:
+    get:
+      operationId: getPractitioners
+      tags: [practitioners]
+      summary: List practitioners
+      responses:
+        "200":
+          description: List of practitioners
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Practitioner"
+
+  /bookings:
+    get:
+      operationId: getBookings
+      tags: [bookings]
+      summary: List bookings
+      responses:
+        "200":
+          description: List of bookings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Booking"
+    post:
+      operationId: createBooking
+      tags: [bookings]
+      summary: Create a booking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookingInput"
+      responses:
+        "201":
+          description: Booking created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Booking"
+
+  /mood:
+    get:
+      operationId: getMoodEntries
+      tags: [mood]
+      summary: List mood entries
+      responses:
+        "200":
+          description: List of mood entries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MoodEntry"
+    post:
+      operationId: createMoodEntry
+      tags: [mood]
+      summary: Log mood
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MoodInput"
+      responses:
+        "201":
+          description: Mood entry created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MoodEntry"
+
+  /profile:
+    get:
+      operationId: getProfile
+      tags: [profile]
+      summary: Get user profile
+      responses:
+        "200":
+          description: Profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Profile"
+    post:
+      operationId: updateProfile
+      tags: [profile]
+      summary: Update profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProfileInput"
+      responses:
+        "200":
+          description: Updated profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Profile"
+
 components:
   schemas:
     HealthStatus:
@@ -31,6 +312,180 @@ components:
       properties:
         status:
           type: string
-      required:
-        - status
+      required: [status]
 
+    RegisterInput:
+      type: object
+      required: [name, email, password]
+      properties:
+        name: { type: string }
+        email: { type: string }
+        password: { type: string }
+
+    LoginInput:
+      type: object
+      required: [email, password]
+      properties:
+        email: { type: string }
+        password: { type: string }
+
+    AuthResult:
+      type: object
+      required: [user]
+      properties:
+        user:
+          $ref: "#/components/schemas/User"
+
+    User:
+      type: object
+      required: [id, name, email]
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        email: { type: string }
+
+    Post:
+      type: object
+      required: [id, author, time, content, reactions, comments, circle, isAnonymous]
+      properties:
+        id: { type: integer }
+        author: { type: string }
+        avatar: { type: ["string", "null"] }
+        time: { type: string }
+        content: { type: string }
+        reactions: { type: object }
+        comments: { type: integer }
+        circle: { type: string }
+        isAnonymous: { type: boolean }
+
+    PostInput:
+      type: object
+      required: [content]
+      properties:
+        content: { type: string }
+        circle: { type: string }
+        isAnonymous: { type: boolean }
+        author: { type: string }
+
+    ReactionInput:
+      type: object
+      required: [reaction]
+      properties:
+        reaction: { type: string }
+
+    PostReaction:
+      type: object
+      required: [id, reactions]
+      properties:
+        id: { type: integer }
+        reactions: { type: object }
+
+    Circle:
+      type: object
+      required: [id, name, members, activity, description, color, category, isWomensOnly]
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        members: { type: integer }
+        activity: { type: string }
+        description: { type: string }
+        color: { type: string }
+        category: { type: string }
+        isWomensOnly: { type: boolean }
+
+    CircleMemberCount:
+      type: object
+      required: [id, members]
+      properties:
+        id: { type: integer }
+        members: { type: integer }
+
+    Experience:
+      type: object
+      required: [id, name, location, distance, price, currency, rating, category, description, highlights, available]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        location: { type: string }
+        distance: { type: string }
+        price: { type: number }
+        currency: { type: string }
+        rating: { type: number }
+        category: { type: string }
+        description: { type: string }
+        highlights: { type: array, items: { type: string } }
+        available: { type: array, items: { type: string } }
+
+    Practitioner:
+      type: object
+      required: [id, name, title, specialty, languages, price, available, rating, sessions, bio]
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        title: { type: string }
+        specialty: { type: string }
+        languages: { type: array, items: { type: string } }
+        price: { type: string }
+        available: { type: boolean }
+        rating: { type: number }
+        sessions: { type: integer }
+        bio: { type: string }
+
+    Booking:
+      type: object
+      required: [id, expId, expName, date, adults, children, totalPrice, paymentMethod, reference]
+      properties:
+        id: { type: string }
+        expId: { type: string }
+        expName: { type: string }
+        date: { type: string }
+        adults: { type: integer }
+        children: { type: integer }
+        totalPrice: { type: number }
+        paymentMethod: { type: string }
+        reference: { type: string }
+
+    BookingInput:
+      type: object
+      required: [expId, date]
+      properties:
+        expId: { type: string }
+        expName: { type: string }
+        date: { type: string }
+        adults: { type: integer }
+        children: { type: integer }
+        totalPrice: { type: number }
+        paymentMethod: { type: string }
+
+    MoodEntry:
+      type: object
+      required: [id, date, mood, note]
+      properties:
+        id: { type: integer }
+        date: { type: string }
+        mood: { type: string }
+        note: { type: string }
+
+    MoodInput:
+      type: object
+      required: [mood]
+      properties:
+        mood: { type: string }
+        note: { type: string }
+
+    Profile:
+      type: object
+      required: [id, name, bio, settings]
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        avatar: { type: ["string", "null"] }
+        bio: { type: string }
+        settings: { type: object }
+
+    ProfileInput:
+      type: object
+      properties:
+        name: { type: string }
+        bio: { type: string }
+        settings: { type: object }

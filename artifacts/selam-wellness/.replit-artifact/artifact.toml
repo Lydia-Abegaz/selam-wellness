@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Selam Wellness"
+version = "1.0.0"
+id = "artifacts/selam-wellness"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23790
+
+[services.development]
+run = "pnpm --filter @workspace/selam-wellness run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/selam-wellness", "run", "build" ]
+publicDir = "artifacts/selam-wellness/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23790"
+BASE_PATH = "/"

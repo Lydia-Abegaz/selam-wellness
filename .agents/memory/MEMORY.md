@@ -1,0 +1,1 @@
+- [Stitch design system](stitch-design-system.md) — full MD3 token set from Google Stitch export applied to index.css; key: primary=#9d3a17, primary-container=#bd522d

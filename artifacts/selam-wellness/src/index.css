@@ -1,124 +1,218 @@
 @import 'tailwindcss';
-/* Be Vietnam Pro + Plus Jakarta Sans loaded via Google Fonts CDN in index.html */
 @import '@fontsource/plus-jakarta-sans/400.css';
 @import '@fontsource/plus-jakarta-sans/500.css';
 @import '@fontsource/plus-jakarta-sans/600.css';
 
 /* ====================================================
-   SELAM WELLNESS — STITCH DESIGN SYSTEM (v2)
-   Primary:   #BD522D (Terracotta / Red Earth)
-   Secondary: #D4A316 (Wanza Gold / Meskel flower)
-   Tertiary:  #2D5A42 (Abyssinian Forest)
-   Neutral:   #43342E (Coffee Bean)
-   Background:#FDF9F4 (Tej / Parchment)
+   SELAM WELLNESS — STITCH DESIGN SYSTEM (v3)
+   Synced from Google Stitch export
+   ====================================================
+   Primary:           #9d3a17 (Terracotta Deep)
+   Primary-Container: #bd522d (Terracotta / Red Earth)
+   Secondary:         #785a00 (Wanza Gold Dark)
+   Sec-Container:     #fdc73f (Wanza Gold)
+   Tertiary:          #36634a (Abyssinian Forest)
+   Background:        #fff8f6 (Tej / Parchment)
    ==================================================== */
 
+/* ── Tailwind theme bridge (all Stitch semantic tokens) ── */
+@theme {
+  /* Primary */
+  --color-primary:                  #9d3a17;
+  --color-on-primary:               #ffffff;
+  --color-primary-container:        #bd522d;
+  --color-on-primary-container:     #fff8f7;
+  --color-primary-fixed:            #ffdbd0;
+  --color-primary-fixed-dim:        #ffb59d;
+  --color-on-primary-fixed:         #390b00;
+  --color-on-primary-fixed-variant: #822804;
+  --color-inverse-primary:          #ffb59d;
+  --color-surface-tint:             #a23e1b;
+
+  /* Secondary */
+  --color-secondary:                    #785a00;
+  --color-on-secondary:                 #ffffff;
+  --color-secondary-container:          #fdc73f;
+  --color-on-secondary-container:       #705400;
+  --color-secondary-fixed:              #ffdf9a;
+  --color-secondary-fixed-dim:          #f3bf37;
+  --color-on-secondary-fixed:           #251a00;
+  --color-on-secondary-fixed-variant:   #5a4300;
+
+  /* Tertiary */
+  --color-tertiary:                     #36634a;
+  --color-on-tertiary:                  #ffffff;
+  --color-tertiary-container:           #4f7c62;
+  --color-on-tertiary-container:        #e8ffee;
+  --color-tertiary-fixed:               #bceece;
+  --color-tertiary-fixed-dim:           #a1d2b3;
+  --color-on-tertiary-fixed:            #002112;
+  --color-on-tertiary-fixed-variant:    #224f38;
+
+  /* Error */
+  --color-error:                #ba1a1a;
+  --color-on-error:             #ffffff;
+  --color-error-container:      #ffdad6;
+  --color-on-error-container:   #93000a;
+
+  /* Surface scale */
+  --color-background:                   #fff8f6;
+  --color-on-background:                #251913;
+  --color-surface:                      #fff8f6;
+  --color-surface-dim:                  #edd5cc;
+  --color-surface-bright:               #fff8f6;
+  --color-surface-variant:              #f6ddd5;
+  --color-surface-container-lowest:     #ffffff;
+  --color-surface-container-low:        #fff1ec;
+  --color-surface-container:            #ffe9e2;
+  --color-surface-container-high:       #fce3da;
+  --color-surface-container-highest:    #f6ddd5;
+  --color-on-surface:                   #251913;
+  --color-on-surface-variant:           #57423c;
+  --color-inverse-surface:              #3c2d27;
+  --color-inverse-on-surface:           #ffede7;
+
+  /* Outline */
+  --color-outline:          #8a726a;
+  --color-outline-variant:  #dec0b7;
+
+  /* Typography */
+  --font-display: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-headline-sm:         'Be Vietnam Pro';
+  --font-headline-md:         'Be Vietnam Pro';
+  --font-display-lg:          'Be Vietnam Pro';
+  --font-display-lg-mobile:   'Be Vietnam Pro';
+  --font-body-md:             'Plus Jakarta Sans';
+  --font-body-lg:             'Plus Jakarta Sans';
+  --font-label-md:            'Plus Jakarta Sans';
+  --font-label-sm:            'Plus Jakarta Sans';
+}
+
+/* ── CSS custom properties (full token set) ─────────────── */
 :root {
-  /* ── BRAND COLORS (Stitch exact tokens) ─────────── */
-  --color-primary:           #BD522D;   /* Terracotta / Red Earth */
-  --color-primary-container: #ffdbd0;
-  --color-on-primary:        #ffffff;
+  /* ── PRIMARY ─────────────────────────────────── */
+  --color-primary:                  #9d3a17;
+  --color-on-primary:               #ffffff;
+  --color-primary-container:        #bd522d;
+  --color-on-primary-container:     #fff8f7;
+  --color-primary-fixed:            #ffdbd0;
+  --color-primary-fixed-dim:        #ffb59d;
+  --color-on-primary-fixed:         #390b00;
+  --color-on-primary-fixed-variant: #822804;
+  --color-inverse-primary:          #ffb59d;
+  --color-surface-tint:             #a23e1b;
 
-  --color-secondary:           #D4A316;  /* Wanza Gold */
-  --color-secondary-container: #fdc73f;
-  --color-on-secondary:        #ffffff;
+  /* ── SECONDARY ───────────────────────────────── */
+  --color-secondary:                    #785a00;
+  --color-on-secondary:                 #ffffff;
+  --color-secondary-container:          #fdc73f;
+  --color-on-secondary-container:       #705400;
+  --color-secondary-fixed:              #ffdf9a;
+  --color-secondary-fixed-dim:          #f3bf37;
+  --color-on-secondary-fixed:           #251a00;
+  --color-on-secondary-fixed-variant:   #5a4300;
 
-  --color-tertiary:           #2D5A42;   /* Abyssinian Forest */
-  --color-tertiary-container: #4f7c62;
-  --color-on-tertiary:        #ffffff;
+  /* ── TERTIARY ────────────────────────────────── */
+  --color-tertiary:                     #36634a;
+  --color-on-tertiary:                  #ffffff;
+  --color-tertiary-container:           #4f7c62;
+  --color-on-tertiary-container:        #e8ffee;
+  --color-tertiary-fixed:               #bceece;
+  --color-tertiary-fixed-dim:           #a1d2b3;
+  --color-on-tertiary-fixed:            #002112;
+  --color-on-tertiary-fixed-variant:    #224f38;
 
-  /* ── SURFACE / NEUTRAL SCALE ─────────────────────── */
-  --color-background:          #FDF9F4;  /* Tej / Parchment base */
-  --color-surface:             #fff8f6;
-  --color-surface-dim:         #edd5cc;
-  --color-surface-container-lowest:  #ffffff;
-  --color-surface-container-low:     #fff1ec;
-  --color-surface-container:         #ffe9e2;
-  --color-surface-container-high:    #fce3da;
-  --color-surface-container-highest: #f6ddd5;
+  /* ── ERROR ───────────────────────────────────── */
+  --color-error:                #ba1a1a;
+  --color-on-error:             #ffffff;
+  --color-error-container:      #ffdad6;
+  --color-on-error-container:   #93000a;
 
-  --color-on-surface:          #251913;
-  --color-on-surface-variant:  #57423c;
-  --color-outline:             #8a726a;
-  --color-outline-variant:     #dec0b7;
+  /* ── SURFACE SCALE ───────────────────────────── */
+  --color-background:                   #fff8f6;
+  --color-on-background:                #251913;
+  --color-surface:                      #fff8f6;
+  --color-surface-dim:                  #edd5cc;
+  --color-surface-bright:               #fff8f6;
+  --color-surface-variant:              #f6ddd5;
+  --color-surface-container-lowest:     #ffffff;
+  --color-surface-container-low:        #fff1ec;
+  --color-surface-container:            #ffe9e2;
+  --color-surface-container-high:       #fce3da;
+  --color-surface-container-highest:    #f6ddd5;
+  --color-on-surface:                   #251913;
+  --color-on-surface-variant:           #57423c;
+  --color-inverse-surface:              #3c2d27;
+  --color-inverse-on-surface:           #ffede7;
 
-  /* ── LEGACY ALIASES (kept for backward compat) ──── */
-  --color-coffee:        #43342E;
-  --color-coffee-light:  #6B4F47;
-  --color-terracotta:    #BD522D;
-  --color-terracotta-soft: #D4734E;
-  --color-gold:          #D4A316;
-  --color-gold-soft:     #F3BF37;
-  --color-ivory:         #FDF9F4;
-  --color-ivory-dark:    #fce3da;
-  --color-parchment:     #ffe9e2;
-  --color-sage:          #2D5A42;
-  --color-sage-light:    #4f7c62;
-  --color-rose-soft:     #ffdbd0;
-  --color-rose-deep:     #BD522D;
-  --color-charcoal:      #251913;
-  --color-charcoal-soft: #57423c;
-  --color-charcoal-muted:#8a726a;
+  /* ── OUTLINE ─────────────────────────────────── */
+  --color-outline:          #8a726a;
+  --color-outline-variant:  #dec0b7;
 
-  /* ── TYPOGRAPHY (Stitch spec) ─────────────────────  */
+  /* ── LEGACY ALIASES (backward compat with existing components) */
+  --color-terracotta:         #9d3a17;
+  --color-terracotta-soft:    #bd522d;
+  --color-gold:               #fdc73f;
+  --color-gold-soft:          #f3bf37;
+  --color-ivory:              #fff8f6;
+  --color-ivory-dark:         #fce3da;
+  --color-parchment:          #ffe9e2;
+  --color-sage:               #36634a;
+  --color-sage-light:         #4f7c62;
+  --color-rose-soft:          #ffdbd0;
+  --color-rose-deep:          #9d3a17;
+  --color-charcoal:           #251913;
+  --color-charcoal-soft:      #57423c;
+  --color-charcoal-muted:     #8a726a;
+  --color-coffee:             #3c2d27;
+  --color-coffee-light:       #57423c;
+
+  /* ── TYPOGRAPHY ──────────────────────────────── */
   --font-display: 'Be Vietnam Pro', system-ui, sans-serif;
   --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
   --font-label:   'Plus Jakarta Sans', system-ui, sans-serif;
 
-  /* Type scale */
-  --text-display-lg:   700 48px/56px var(--font-display);
-  --text-headline-md:  600 32px/40px var(--font-display);
-  --text-headline-sm:  600 24px/32px var(--font-display);
-  --text-body-lg:      400 18px/28px var(--font-body);
-  --text-body-md:      400 16px/24px var(--font-body);
-  --text-label-md:     600 14px/20px var(--font-label);
-  --text-label-sm:     500 12px/16px var(--font-label);
+  /* Type scale (Stitch spec with letter-spacing) */
+  --text-display-lg:        700 48px/56px var(--font-display);
+  --text-display-lg-mobile: 700 36px/44px var(--font-display);
+  --text-headline-md:       600 32px/40px var(--font-display);
+  --text-headline-sm:       600 24px/32px var(--font-display);
+  --text-body-lg:           400 18px/28px var(--font-body);
+  --text-body-md:           400 16px/24px var(--font-body);
+  --text-label-md:          600 14px/20px var(--font-label);
+  --text-label-sm:          500 12px/16px var(--font-label);
 
-  /* ── SPACING (8px base rhythm, Stitch spec) ──────── */
-  --space-xs:  4px;
-  --space-sm:  12px;
-  --space-md:  24px;
-  --space-lg:  40px;
-  --space-xl:  64px;
-  --space-2xl: 80px;
-  --space-3xl: 120px;
-  --space-container-padding: 20px;
-  --space-gutter: 16px;
+  /* ── SPACING (8px baseline rhythm, Stitch spec) ─ */
+  --space-xs:                 4px;
+  --space-sm:                 12px;
+  --space-md:                 24px;
+  --space-lg:                 40px;
+  --space-xl:                 64px;
+  --space-container-padding:  20px;
+  --space-gutter:             16px;
 
-  /* ── BORDER RADIUS ───────────────────────────────── */
-  --radius-sm:   4px;
-  --radius-md:   8px;
-  --radius-lg:   16px;
-  --radius-xl:   24px;
-  --radius-2xl:  32px;
-  --radius-full: 9999px;
+  /* ── BORDER RADIUS (Stitch organic shapes) ─────── */
+  --radius-sm:    4px;
+  --radius-md:    8px;     /* DEFAULT */
+  --radius-lg:    12px;    /* lg */
+  --radius-xl:    16px;    /* xl */
+  --radius-2xl:   24px;
+  --radius-full:  9999px;
 
-  /* ── SHADOWS (Soft Earth Shadows) ───────────────── */
-  --shadow-soft: 0 2px 8px rgba(67, 52, 46, 0.06);
-  --shadow-card: 0 4px 20px rgba(67, 52, 46, 0.08);
-  --shadow-lift: 0 12px 40px rgba(67, 52, 46, 0.14);
-  --shadow-modal:0 24px 64px rgba(67, 52, 46, 0.16);
+  /* ── ELEVATION — Soft Earth Shadows ────────────── */
+  --shadow-soft:  0 2px 8px  rgba(67, 52, 46, 0.06);
+  --shadow-card:  0 4px 20px rgba(67, 52, 46, 0.08);
+  --shadow-lift:  0 12px 40px rgba(67, 52, 46, 0.14);
+  --shadow-modal: 0 24px 64px rgba(67, 52, 46, 0.16);
 
-  /* ── TRANSITIONS ─────────────────────────────────── */
+  /* ── TRANSITIONS ─────────────────────────────── */
   --transition-fast:   150ms ease;
   --transition-normal: 250ms ease;
   --transition-slow:   400ms ease;
 }
 
-/* ── Tailwind theme bridge ───────────────────────── */
-@theme {
-  --color-coffee:      #43342E;
-  --color-terracotta:  #BD522D;
-  --color-gold:        #D4A316;
-  --color-ivory:       #FDF9F4;
-  --color-sage:        #2D5A42;
-  --color-rose-soft:   #ffdbd0;
-  --color-rose-deep:   #BD522D;
-  --font-display: 'Be Vietnam Pro', system-ui, sans-serif;
-  --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
-}
-
-/* ── RESET ───────────────────────────────────────── */
+/* ── RESET ───────────────────────────────────────────── */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -134,12 +228,12 @@ html, body, #root {
 body {
   font-family: var(--font-body);
   background-color: var(--color-background);
-  color: var(--color-charcoal);
+  color: var(--color-on-surface);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── APP SHELL ───────────────────────────────────── */
+/* ── APP SHELL ───────────────────────────────────────── */
 .app-shell {
   width: 100%;
   height: 100%;
@@ -149,16 +243,64 @@ body {
   background: var(--color-background);
 }
 
-/* ── TIBEB PATTERN (cultural textile watermark) ─── */
+/* ── TIBEB PATTERN (Stitch: cultural textile accent) ─── */
 .tibeb-bg {
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20L20 0ZM20 2L2 20L20 38L38 20L20 2Z' fill='%2343342E' fill-opacity='0.025' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20L20 0ZM20 2L2 20L20 38L38 20L20 2Z' fill='%239d3a17' fill-opacity='0.025' fill-rule='evenodd'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
 }
 
-/* ── PRIMARY BUTTON (Stitch: 56px min height, tactile squishy press) */
+/* Stitch tibeb-pattern utility (diagonal stripe variant) */
+.tibeb-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(157, 58, 23, 0.05) 10px,
+    rgba(157, 58, 23, 0.05) 12px
+  );
+}
+
+/* Stitch tibeb-border (dot grid variant) */
+.tibeb-border {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent, transparent 5px,
+    rgba(157, 58, 23, 0.10) 5px,
+    rgba(157, 58, 23, 0.10) 10px
+  );
+}
+
+/* ── GLASS CARD (Stitch glassmorphism spec) ─────────── */
+.glass-card {
+  background: rgba(255, 248, 246, 0.70);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(222, 192, 183, 0.30);
+}
+
+/* ── ORGANIC SHAPE (Stitch "pebble" shape language) ─── */
+.organic-shape {
+  border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+}
+
+/* ── SOFT SHADOW ─────────────────────────────────────── */
+.soft-shadow {
+  box-shadow: 0 10px 30px -10px rgba(67, 52, 46, 0.12);
+}
+
+/* ── FLOAT ANIMATION ─────────────────────────────────── */
+@keyframes subtle-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+.float-animation {
+  animation: subtle-float 6s ease-in-out infinite;
+}
+
+/* ── PRIMARY BUTTON (Stitch: 56px min height, tactile press) */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -173,19 +315,19 @@ body {
   font: var(--text-label-md);
   font-size: 15px;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(189, 82, 45, 0.30);
+  box-shadow: 0 4px 16px rgba(157, 58, 23, 0.30);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 .btn-primary:hover {
-  box-shadow: 0 6px 24px rgba(189, 82, 45, 0.38);
+  box-shadow: 0 6px 24px rgba(157, 58, 23, 0.38);
   transform: translateY(-1px);
 }
 .btn-primary:active {
   transform: scale(0.97) translateY(1px);
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.18), 0 2px 8px rgba(189, 82, 45, 0.2);
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.18), 0 2px 8px rgba(157, 58, 23, 0.2);
 }
 
-/* ── SECONDARY BUTTON */
+/* ── SECONDARY BUTTON ────────────────────────────────── */
 .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -202,27 +344,18 @@ body {
   cursor: pointer;
   transition: all var(--transition-fast);
 }
-.btn-secondary:hover {
-  background: rgba(189, 82, 45, 0.06);
-}
-.btn-secondary:active {
-  transform: scale(0.97);
-}
+.btn-secondary:hover  { background: rgba(157, 58, 23, 0.06); }
+.btn-secondary:active { transform: scale(0.97); }
 
-/* ── SCROLLBAR ───────────────────────────────────── */
+/* ── SCROLLBAR ───────────────────────────────────────── */
 .app-shell ::-webkit-scrollbar { width: 6px; }
 .app-shell ::-webkit-scrollbar-track { background: transparent; }
 .app-shell ::-webkit-scrollbar-thumb {
   background: var(--color-outline-variant);
   border-radius: 3px;
 }
-.app-shell ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-outline);
-}
+.app-shell ::-webkit-scrollbar-thumb:hover { background: var(--color-outline); }
 
-/* ── UTILITY: hide scrollbar ─────────────────────── */
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+/* ── UTILITY: hide scrollbar ─────────────────────────── */
+.no-scrollbar               { -ms-overflow-style: none; scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }

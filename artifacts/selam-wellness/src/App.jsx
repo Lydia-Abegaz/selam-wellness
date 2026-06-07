@@ -20,6 +20,7 @@ import Profile from './screens/Profile';
 import SelfCareHub from './screens/SelfCareHub';
 import ExperienceDetail from './screens/Retreats/ExperienceDetail';
 import BookingFlow from './screens/Retreats/BookingFlow';
+import RetreatsDiscover from './screens/Retreats/RetreatsDiscover';
 
 // Screens that DON'T show the top nav
 const NO_NAV_SCREENS = ['landing', 'login', 'register', 'create-post', 'booking', 'cycle'];
@@ -81,6 +82,10 @@ export default function App() {
       case 'profile':       return <Profile {...screenProps} />;
       case 'journal':       return <SelfCareHub {...screenProps} />;
       case 'daily':         return <SelfCareHub {...screenProps} />;
+      case 'self-care':     return <SelfCareHub {...screenProps} />;
+      case 'mood':          return <SelfCareHub {...screenProps} />;
+      case 'experiences':   return <RetreatsDiscover {...screenProps} />;
+      case 'notifications': return <Home {...screenProps} />;
       case 'experience':    return <ExperienceDetail {...screenProps} />;
       case 'booking':       return <BookingFlow {...screenProps} />;
       default:              return <LandingPage {...screenProps} />;

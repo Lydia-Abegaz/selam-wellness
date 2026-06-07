@@ -17,6 +17,9 @@ import CreatePost from './screens/Circles/CreatePost';
 import EventsPage from './screens/EventsPage';
 import GrowthPage from './screens/GrowthPage';
 import Profile from './screens/Profile';
+import SelfCareHub from './screens/SelfCareHub';
+import ExperienceDetail from './screens/Retreats/ExperienceDetail';
+import BookingFlow from './screens/Retreats/BookingFlow';
 
 // Screens that DON'T show the top nav
 const NO_NAV_SCREENS = ['landing', 'login', 'register', 'create-post', 'booking', 'cycle'];
@@ -76,6 +79,10 @@ export default function App() {
       case 'events':        return <EventsPage {...screenProps} />;
       case 'growth':        return <GrowthPage {...screenProps} />;
       case 'profile':       return <Profile {...screenProps} />;
+      case 'journal':       return <SelfCareHub {...screenProps} />;
+      case 'daily':         return <SelfCareHub {...screenProps} />;
+      case 'experience':    return <ExperienceDetail {...screenProps} />;
+      case 'booking':       return <BookingFlow {...screenProps} />;
       default:              return <LandingPage {...screenProps} />;
     }
   };

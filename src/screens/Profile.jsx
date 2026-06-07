@@ -85,9 +85,9 @@ export default function Profile({ navigate }) {
             boxShadow: '0 2px 12px rgba(44,24,16,0.06)',
           }}>
             <p style={{ marginBottom: '4px' }}>No bookings yet.</p>
-            <p style={{ fontSize: '13px' }}>Book a retreat to see your history here.</p>
+            <p style={{ fontSize: '13px' }}>Book an event to see your history here.</p>
             <button
-              onClick={() => navigate('retreats')}
+              onClick={() => navigate('events')}
               style={{
                 marginTop: 'var(--space-md)', background: 'var(--color-terracotta)',
                 color: '#FFF', border: 'none', padding: '10px 24px',
@@ -95,7 +95,7 @@ export default function Profile({ navigate }) {
                 fontWeight: '500', cursor: 'pointer',
               }}
             >
-              Explore Retreats
+              Explore Events
             </button>
           </div>
         )}

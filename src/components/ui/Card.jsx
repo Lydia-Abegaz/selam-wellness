@@ -11,26 +11,30 @@ export default function Card({
 }) {
   const variantStyles = {
     default: {
-      background: 'var(--color-ivory-dark)',
-      border: '1px solid rgba(44, 24, 16, 0.06)',
+      background: 'var(--color-surface-container-lowest)',
+      border: '1px solid var(--color-outline-variant)',
     },
     rose: {
-      background: 'var(--color-rose-soft)',
-      border: '1px solid rgba(181, 118, 138, 0.15)',
+      background: 'var(--color-primary-container)',
+      border: '1px solid rgba(189,82,45,0.15)',
     },
     terracotta: {
-      background: 'linear-gradient(135deg, #C1440E 0%, #E8845A 100%)',
+      background: 'linear-gradient(135deg, var(--color-primary) 0%, #D4734E 100%)',
       border: 'none',
-      color: '#FAF3E0',
+      color: '#FFFFFF',
     },
     gold: {
-      background: 'linear-gradient(135deg, #D4A017 0%, #F0C84A 100%)',
+      background: 'linear-gradient(135deg, var(--color-secondary) 0%, var(--color-gold-soft) 100%)',
       border: 'none',
       color: 'var(--color-coffee)',
     },
     parchment: {
-      background: 'var(--color-parchment)',
-      border: '1px solid rgba(44, 24, 16, 0.06)',
+      background: 'var(--color-surface-container-low)',
+      border: '1px solid var(--color-outline-variant)',
+    },
+    surface: {
+      background: 'var(--color-surface-container)',
+      border: '1px solid var(--color-outline-variant)',
     },
   };
 
@@ -41,7 +45,7 @@ export default function Card({
     ? {
         initial: { opacity: 0, y: 16 },
         animate: { opacity: 1, y: 0 },
-        transition: { delay: index * 0.08, duration: 0.35, ease: 'easeOut' },
+        transition: { delay: index * 0.08, duration: 0.3, ease: 'easeOut' },
         whileTap: onClick ? { scale: 0.98 } : undefined,
       }
     : {};
@@ -51,8 +55,8 @@ export default function Card({
       onClick={onClick}
       style={{
         ...v,
-        borderRadius: 'var(--radius-md)',
-        padding: 'var(--space-lg)',
+        borderRadius: 'var(--radius-xl)',
+        padding: 'var(--space-md)',
         boxShadow: 'var(--shadow-card)',
         cursor: onClick ? 'pointer' : 'default',
         position: 'relative',
@@ -62,7 +66,17 @@ export default function Card({
       {...animateProps}
       {...props}
     >
+      {/* Tibeb strip for terracotta/featured cards */}
+      {(variant === 'terracotta') && (
+        <div style={{
+          position: 'absolute',
+          bottom: 0, left: 0, right: 0,
+          height: '3px',
+          background: 'rgba(255,255,255,0.25)',
+        }} />
+      )}
       {children}
     </Component>
   );
 }
+

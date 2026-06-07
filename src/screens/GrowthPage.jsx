@@ -92,7 +92,7 @@ export default function GrowthPage({ navigate }) {
 
   return (
     <PageWrapper>
-      <TopBar title="Growth" showBack onBack={() => navigate('home')} />
+      <TopBar title="Growth" />
 
       <div style={{
         display: 'flex',

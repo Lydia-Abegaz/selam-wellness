@@ -238,7 +238,7 @@ export default function BookingFlow({ navigate, params }) {
       </Card>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        <Button variant="primary" fullWidth onClick={() => navigate('retreats')}>Add to Calendar</Button>
+        <Button variant="primary" fullWidth onClick={() => navigate('events')}>Add to Calendar</Button>
         <Button variant="secondary" fullWidth onClick={() => navigate('home')}>Return Home</Button>
       </div>
     </motion.div>

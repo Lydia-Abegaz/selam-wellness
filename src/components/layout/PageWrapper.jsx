@@ -3,8 +3,10 @@ export default function PageWrapper({ children, style: customStyle = {} }) {
     <div
       className="no-scrollbar"
       style={{
-        padding: 'var(--space-md)',
-        paddingBottom: 'var(--space-3xl)',
+        padding: 'var(--space-md) var(--space-container-padding)',
+        paddingBottom: 'var(--space-2xl)',
+        maxWidth: '1140px',
+        margin: '0 auto',
         height: '100%',
         overflowY: 'auto',
         position: 'relative',
@@ -16,3 +18,4 @@ export default function PageWrapper({ children, style: customStyle = {} }) {
     </div>
   );
 }
+

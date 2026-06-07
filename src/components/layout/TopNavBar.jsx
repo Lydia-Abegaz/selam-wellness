@@ -11,6 +11,7 @@ export default function TopNavBar({ activeTab, onNavigate, user, onLogout }) {
     { id: 'womens',       label: "Women's" },
     { id: 'events',       label: 'Events' },
     { id: 'growth',       label: 'Growth' },
+    { id: 'profile',      label: 'Profile' },
   ];
 
   const isActive = (id) => activeTab === id;
@@ -22,9 +23,9 @@ export default function TopNavBar({ activeTab, onNavigate, user, onLogout }) {
       justifyContent: 'space-between',
       padding: '0 var(--space-2xl)',
       height: '64px',
-      background: 'rgba(251,251,250,0.92)',
+      background: 'rgba(253,249,244,0.92)',
       backdropFilter: 'blur(12px)',
-      borderBottom: '1px solid rgba(44,24,16,0.07)',
+      borderBottom: '1px solid var(--color-outline-variant)',
       position: 'sticky',
       top: 0,
       zIndex: 100,

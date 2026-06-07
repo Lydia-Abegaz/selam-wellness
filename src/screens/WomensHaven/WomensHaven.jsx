@@ -53,7 +53,7 @@ export default function WomensHaven({ navigate, user }) {
 
   return (
     <PageWrapper>
-      <TopBar title="Women's Health" showBack onBack={() => navigate('home')} />
+      <TopBar title="Women's Health" />
 
       {/* SECTION 1 - Hero Intro */}
       <section style={{ marginBottom: 'var(--space-2xl)' }}>

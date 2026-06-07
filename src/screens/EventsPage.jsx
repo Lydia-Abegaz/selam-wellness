@@ -34,7 +34,7 @@ export default function EventsPage({ navigate }) {
 
   return (
     <PageWrapper>
-      <TopBar title="Events" showBack onBack={() => navigate('home')} />
+      <TopBar title="Events" />
 
       {/* SECTION 1 - Page Intro */}
       <section style={{ marginBottom: 'var(--space-2xl)' }}>

@@ -8,7 +8,6 @@ import MoodSelector from '../components/ui/MoodSelector';
 import WhisperCard from '../components/features/WhisperCard';
 import CircleCard from '../components/features/CircleCard';
 import ExperienceCard from '../components/features/ExperienceCard';
-import MoonCycleCard from '../components/features/MoonCycleCard';
 
 import { mockPosts } from '../data/mockPosts';
 import { mockCircles } from '../data/mockCircles';
@@ -52,11 +51,6 @@ export default function Home({ navigate }) {
         </p>
         <MoodSelector onSelect={(mood) => console.log('Selected mood:', mood)} />
       </Card>
-
-      {/* MOON CYCLE CARD */}
-      <div style={{ marginBottom: 'var(--space-xl)' }}>
-        <MoonCycleCard day={11} onTap={() => navigate('cycle')} />
-      </div>
 
       {/* WHISPERS OF THE CIRCLE */}
       <section style={{ marginBottom: 'var(--space-xl)' }}>

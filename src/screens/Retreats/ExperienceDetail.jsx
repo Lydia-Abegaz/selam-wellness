@@ -28,7 +28,7 @@ export default function ExperienceDetail({ navigate, params }) {
         background: 'linear-gradient(135deg, #C1440E 0%, #E8845A 50%, #D4A017 100%)',
       }}>
         <button
-          onClick={() => navigate('retreats')}
+          onClick={() => navigate('events')}
           style={{
             position: 'absolute',
             top: 'var(--space-xl)',

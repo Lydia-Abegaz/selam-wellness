@@ -8,14 +8,14 @@ export default function LandingPage({ navigate }) {
   const orbs = [
     { id: 'circles',     label: 'Circles',   icon: '👥', angle: 190, radius: 180 },
     { id: 'womens',      label: "Women's",   icon: '🌙', angle: 340, radius: 170 },
-    { id: 'retreats',    label: 'Retreats',  icon: '⛰️', angle: 10,  radius: 200 },
+    { id: 'events',      label: 'Events',    icon: '⛰️', angle: 10,  radius: 200 },
     { id: 'daily',       label: 'Rituals',   icon: '🔮', angle: 220, radius: 220 },
   ];
 
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#F5EDE0',
+      background: 'var(--color-background)',
       position: 'relative',
       overflow: 'hidden',
       fontFamily: 'var(--font-body)',
@@ -58,8 +58,8 @@ export default function LandingPage({ navigate }) {
           {[
             { label: 'Circles',    id: 'circles' },
             { label: "Women's",   id: 'womens' },
-            { label: 'Retreats',   id: 'retreats' },
-            { label: 'Library',    id: 'library' },
+            { label: 'Events',     id: 'events' },
+            { label: 'Growth',     id: 'growth' },
           ].map(item => (
             <button key={item.id} onClick={() => navigate(item.id)} style={{
               background: 'none', border: 'none', cursor: 'pointer',
@@ -174,11 +174,11 @@ export default function LandingPage({ navigate }) {
           {/* Launch Partner Strip */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'space-between',
-            background: '#FFF',
-            borderRadius: '16px',
+            background: 'var(--color-surface-container-lowest)',
+            borderRadius: 'var(--radius-lg)',
             padding: '14px 20px',
             gap: '20px',
-            boxShadow: '0 2px 16px rgba(44,24,16,0.08)',
+            boxShadow: 'var(--shadow-card)',
             maxWidth: '420px',
           }}>
             <div>

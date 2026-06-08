@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
 import TopNavBar from './components/layout/TopNavBar';
 
 // Auth Screens
@@ -25,24 +24,20 @@ import RetreatsDiscover from './screens/Retreats/RetreatsDiscover';
 // Screens that DON'T show the top nav
 const NO_NAV_SCREENS = ['landing', 'login', 'register', 'create-post', 'booking', 'cycle'];
 
-export default function App() {
-  const [screen, setScreen] = useState('landing');
-  const [screenParams, setScreenParams] = useState({});
-  const [user, setUser] = useState(null);
+function loadSession() {
+  try {
+    const raw = localStorage.getItem('selam_user');
+    if (raw) return JSON.parse(raw);
+  } catch (e) {
+    localStorage.removeItem('selam_user');
+  }
+  return null;
+}
 
-  // Restore session from localStorage on mount
-  useEffect(() => {
-    const savedUser = localStorage.getItem('selam_user');
-    if (savedUser) {
-      try {
-        const parsed = JSON.parse(savedUser);
-        setUser(parsed);
-        setScreen('home');
-      } catch (e) {
-        localStorage.removeItem('selam_user');
-      }
-    }
-  }, []);
+export default function App() {
+  const [user, setUser] = useState(() => loadSession());
+  const [screen, setScreen] = useState(() => (loadSession() ? 'home' : 'landing'));
+  const [screenParams, setScreenParams] = useState({});
 
   const navigate = (to, params = {}) => {
     setScreen(to);
@@ -108,18 +103,9 @@ export default function App() {
         />
       )}
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={screen}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.22, ease: 'easeInOut' }}
-          style={{ position: 'relative', zIndex: 1 }}
-        >
-          {renderScreen()}
-        </motion.div>
-      </AnimatePresence>
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        {renderScreen()}
+      </div>
     </div>
   );
 }

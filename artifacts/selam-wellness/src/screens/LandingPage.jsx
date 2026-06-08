@@ -129,14 +129,6 @@ export default function LandingPage({ navigate }) {
       {/* ── PILLARS BENTO ── */}
       <section style={{ padding: '80px 40px', background: 'var(--color-background)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 48 }}>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px,4vw,52px)', fontWeight: 700, color: 'var(--color-on-surface)', letterSpacing: '-0.03em', lineHeight: 1 }}>
-              Four pillars<br />of peace.
-            </h2>
-            <button onClick={() => navigate('home')} style={{ background: 'none', border: '1.5px solid var(--color-outline-variant)', padding: '12px 28px', borderRadius: 999, fontSize: 13, fontWeight: 600, color: 'var(--color-on-surface)', cursor: 'pointer' }}>
-              Enter →
-            </button>
-          </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gridTemplateRows: '240px 240px', gap: 16 }}>
 

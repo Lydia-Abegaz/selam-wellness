@@ -64,54 +64,25 @@ export default function LandingPage({ navigate }) {
         </div>
       </header>
 
-      {/* ── HERO: Ethiopian Coffee Ceremony Photo ── */}
+      {/* ── HERO ── */}
       <section ref={heroRef} style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', overflow: 'hidden' }}>
 
-        {/* Real photo — parallax */}
         <motion.div style={{ y: heroImgY, position: 'absolute', inset: '-15% 0 -15% 0', zIndex: 0 }}>
-          <img
-            src="/coffee-fire.png"
-            alt="Ethiopian coffee ceremony"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%' }}
-          />
+          <img src="/coffee-fire.png" alt="Ethiopian coffee ceremony" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%' }} />
         </motion.div>
 
-        {/* Rich gradient overlay — preserves warmth but gives contrast for text */}
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(15,6,3,0.55) 0%, rgba(15,6,3,0.20) 35%, rgba(15,6,3,0.70) 70%, rgba(15,6,3,0.92) 100%)', zIndex: 1 }} />
-
-        {/* Subtle tibeb grid overlay */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 2, opacity: 0.04, backgroundImage: 'repeating-linear-gradient(0deg, rgba(253,199,63,1) 0px, rgba(253,199,63,1) 1px, transparent 1px, transparent 48px), repeating-linear-gradient(90deg, rgba(253,199,63,1) 0px, rgba(253,199,63,1) 1px, transparent 1px, transparent 48px)', pointerEvents: 'none' }} />
 
-        {/* Floating badge — top right */}
+        {/* Floating badge */}
         <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.6 }}
           style={{ position: 'absolute', top: 96, right: 40, zIndex: 5, display: 'flex', alignItems: 'center', gap: 10, background: 'rgba(253,199,63,0.10)', backdropFilter: 'blur(12px)', border: '1px solid rgba(253,199,63,0.28)', borderRadius: 18, padding: '12px 18px' }}>
           <span style={{ fontSize: 18 }}>🕯️</span>
-          <div>
-            <div style={{ fontSize: 9, fontWeight: 700, color: 'rgba(253,199,63,0.70)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Daily Ritual</div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: '#fff' }}>Coffee Ceremony</div>
-          </div>
-        </motion.div>
-
-        {/* Kuriftu partner badge */}
-        <motion.div initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.9, duration: 0.6 }}
-          style={{ position: 'absolute', top: 180, right: 40, zIndex: 5, display: 'flex', alignItems: 'center', gap: 10, background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 18, padding: '12px 18px' }}>
-          <span style={{ fontSize: 18 }}>🏔️</span>
-          <div>
-            <div style={{ fontSize: 9, fontWeight: 700, color: 'rgba(255,255,255,0.50)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Partner</div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: '#fff' }}>Kuriftu Resort</div>
-            <div style={{ fontSize: 11, color: 'rgba(253,199,63,0.90)', fontWeight: 600 }}>Lake Spa · 1,800 ETB</div>
-          </div>
-          <button onClick={() => navigate('experiences')} style={{ background: 'var(--color-secondary-container)', color: 'var(--color-on-secondary-container)', border: 'none', padding: '6px 14px', borderRadius: 999, fontSize: 12, fontWeight: 700, cursor: 'pointer', marginLeft: 4 }}>Book</button>
+          <div style={{ fontSize: 13, fontWeight: 600, color: '#fff' }}>Coffee Ceremony</div>
         </motion.div>
 
         {/* Headline */}
         <motion.div style={{ opacity: heroOpacity, position: 'relative', zIndex: 3, padding: '0 40px 0' }}>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-            <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--color-secondary-container)', display: 'inline-block' }} />
-            <span style={{ fontSize: 11, fontWeight: 700, color: 'rgba(253,199,63,0.80)', letterSpacing: '0.14em', textTransform: 'uppercase' }}>Peace is a communal journey</span>
-          </motion.div>
-
           <motion.h1 initial={{ opacity: 0, y: 48 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(64px, 10vw, 148px)', fontWeight: 700, lineHeight: 0.92, letterSpacing: '-0.04em', color: '#fff', margin: 0 }}>
             Find your
@@ -140,7 +111,7 @@ export default function LandingPage({ navigate }) {
           style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'stretch', borderTop: '1px solid rgba(255,255,255,0.09)', marginTop: 52 }}>
           {[
             { n: '12k+', label: 'Members' },
-            { n: '48',   label: 'Active Circles' },
+            { n: '48',   label: 'Circles' },
             { n: '4',    label: 'Pillars' },
             { n: '∞',    label: 'Community' },
           ].map((s, i) => (
@@ -163,24 +134,19 @@ export default function LandingPage({ navigate }) {
               Four pillars<br />of peace.
             </h2>
             <button onClick={() => navigate('home')} style={{ background: 'none', border: '1.5px solid var(--color-outline-variant)', padding: '12px 28px', borderRadius: 999, fontSize: 13, fontWeight: 600, color: 'var(--color-on-surface)', cursor: 'pointer' }}>
-              Enter the space →
+              Enter →
             </button>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gridTemplateRows: '240px 240px', gap: 16 }}>
 
-            {/* Circles — 2×2 */}
+            {/* Circles */}
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.97 }} onClick={() => navigate('circles')}
               style={{ gridColumn: '1 / 3', gridRow: '1 / 3', background: 'var(--color-primary)', borderRadius: 28, border: 'none', cursor: 'pointer', padding: 40, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', textAlign: 'left', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', bottom: -40, right: -40, width: 280, height: 280, borderRadius: '50%', background: 'rgba(255,255,255,0.07)', pointerEvents: 'none' }} />
-              <div style={{ position: 'absolute', top: -30, left: -30, width: 160, height: 160, borderRadius: '50%', background: 'rgba(255,255,255,0.04)', pointerEvents: 'none' }} />
-              {/* Tibeb stripe accent */}
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 5, background: 'repeating-linear-gradient(90deg, var(--color-secondary-container) 0px, var(--color-secondary-container) 10px, transparent 10px, transparent 18px)', opacity: 0.5 }} />
               <div style={{ width: 64, height: 64, borderRadius: 18, background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28 }}>👥</div>
-              <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: 42, fontWeight: 700, color: '#fff', letterSpacing: '-0.03em', lineHeight: 1, marginBottom: 8 }}>Circles</div>
-                <div style={{ fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.55)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Community</div>
-              </div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 42, fontWeight: 700, color: '#fff', letterSpacing: '-0.03em', lineHeight: 1 }}>Circles</div>
             </motion.button>
 
             {/* Self-Care */}
@@ -188,20 +154,16 @@ export default function LandingPage({ navigate }) {
               style={{ gridColumn: '3 / 4', gridRow: '1 / 2', background: 'var(--color-secondary-fixed)', borderRadius: 24, border: 'none', cursor: 'pointer', padding: 28, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', textAlign: 'left', overflow: 'hidden', position: 'relative' }}>
               <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, opacity: 0.04, backgroundImage: 'repeating-linear-gradient(-45deg, transparent 0px, transparent 8px, rgba(120,90,0,1) 8px, rgba(120,90,0,1) 9px)', pointerEvents: 'none' }} />
               <div style={{ fontSize: 28 }}>🌿</div>
-              <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 700, color: 'var(--color-on-secondary-fixed)', letterSpacing: '-0.02em' }}>Self-Care</div>
-                <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--color-on-secondary-fixed-variant)', letterSpacing: '0.05em', textTransform: 'uppercase', marginTop: 4, opacity: 0.65 }}>Rituals</div>
-              </div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 700, color: 'var(--color-on-secondary-fixed)', letterSpacing: '-0.02em' }}>Self-Care</div>
             </motion.button>
 
-            {/* Experiences — real Kuriftu photo */}
+            {/* Experiences */}
             <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }} onClick={() => navigate('experiences')}
               style={{ gridColumn: '4 / 5', gridRow: '1 / 3', borderRadius: 24, border: 'none', cursor: 'pointer', padding: 0, display: 'flex', flexDirection: 'column', textAlign: 'left', overflow: 'hidden', position: 'relative' }}>
               <img src="/kuriftu-spa.png" alt="Kuriftu Resort Spa" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,6,3,0.90) 0%, rgba(15,6,3,0.30) 50%, transparent 100%)' }} />
               <div style={{ position: 'relative', zIndex: 2, marginTop: 'auto', padding: 24 }}>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 700, color: '#fff', letterSpacing: '-0.02em' }}>Experiences</div>
-                <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.55)', letterSpacing: '0.05em', textTransform: 'uppercase', marginTop: 4 }}>Retreats</div>
               </div>
             </motion.button>
 
@@ -209,21 +171,17 @@ export default function LandingPage({ navigate }) {
             <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }} onClick={() => navigate('womens')}
               style={{ gridColumn: '3 / 4', gridRow: '2 / 3', background: 'var(--color-primary-fixed)', borderRadius: 24, border: 'none', cursor: 'pointer', padding: 28, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', textAlign: 'left' }}>
               <div style={{ fontSize: 28 }}>🌙</div>
-              <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 700, color: 'var(--color-on-primary-fixed)', letterSpacing: '-0.02em' }}>Women's</div>
-                <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--color-on-primary-fixed-variant)', letterSpacing: '0.05em', textTransform: 'uppercase', marginTop: 4, opacity: 0.65 }}>Health</div>
-              </div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 700, color: 'var(--color-on-primary-fixed)', letterSpacing: '-0.02em' }}>Women's</div>
             </motion.button>
           </div>
         </div>
       </section>
 
-      {/* ── SPLIT: real jebena/herbs photo ── */}
+      {/* ── SPLIT: jebena/herbs photo ── */}
       <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 480 }}>
 
-        {/* Left — dark manifesto */}
+        {/* Left — dark */}
         <div style={{ background: 'var(--color-on-surface)', padding: '72px 64px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', position: 'relative', overflow: 'hidden' }}>
-          {/* Tibeb stripe top */}
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: 'repeating-linear-gradient(90deg, var(--color-secondary-container) 0px, var(--color-secondary-container) 12px, transparent 12px, transparent 20px)' }} />
           <div style={{ width: 64, height: 64, borderRadius: 16, background: 'rgba(253,199,63,0.10)', border: '1px solid rgba(253,199,63,0.20)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28 }}>⚗️</div>
           <div>
@@ -237,19 +195,10 @@ export default function LandingPage({ navigate }) {
           </div>
         </div>
 
-        {/* Right — jebena/herbs photo */}
+        {/* Right — photo only */}
         <div style={{ position: 'relative', overflow: 'hidden', minHeight: 440 }}>
           <img src="/jebena-herbs.png" alt="Ethiopian jebena and herbs" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(15,6,3,0.55) 0%, transparent 50%), linear-gradient(to top, rgba(15,6,3,0.70) 0%, transparent 60%)' }} />
-          {/* Caption overlay */}
-          <div style={{ position: 'absolute', bottom: 36, left: 36, zIndex: 2 }}>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 700, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 12 }}>
-              Every cup<br />a moment of peace.
-            </div>
-            <button onClick={() => navigate('self-care')} style={{ background: 'var(--color-primary)', border: 'none', color: '#fff', padding: '11px 24px', borderRadius: 999, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
-              Start a ritual →
-            </button>
-          </div>
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(15,6,3,0.35) 0%, transparent 50%)' }} />
         </div>
       </section>
 
@@ -257,18 +206,15 @@ export default function LandingPage({ navigate }) {
       <section style={{ padding: '80px 40px', background: 'var(--color-surface-container-low)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
           {[
-            { icon: '🌙', title: "Women's Haven", sub: 'A safe sacred space', id: 'womens', bg: 'var(--color-primary-fixed)', fg: 'var(--color-on-primary-fixed)' },
-            { icon: '📖', title: 'Growth & Lessons', sub: 'Wisdom in micro-doses', id: 'growth', bg: 'var(--color-tertiary-fixed)', fg: 'var(--color-on-tertiary-fixed)' },
-            { icon: '🗓️', title: 'Events', sub: 'In-person & virtual', id: 'events', bg: 'var(--color-secondary-fixed)', fg: 'var(--color-on-secondary-fixed)' },
+            { icon: '🌙', title: "Women's Haven", id: 'womens', bg: 'var(--color-primary-fixed)', fg: 'var(--color-on-primary-fixed)' },
+            { icon: '📖', title: 'Growth',        id: 'growth', bg: 'var(--color-tertiary-fixed)', fg: 'var(--color-on-tertiary-fixed)' },
+            { icon: '🗓️', title: 'Events',        id: 'events', bg: 'var(--color-secondary-fixed)', fg: 'var(--color-on-secondary-fixed)' },
           ].map((f, i) => (
             <motion.button key={i} whileHover={{ translateY: -4 }} whileTap={{ scale: 0.97 }} onClick={() => navigate(f.id)}
               style={{ background: f.bg, borderRadius: 24, border: 'none', padding: '36px 32px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 16, cursor: 'pointer', textAlign: 'left', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', bottom: -20, right: -20, width: 100, height: 100, borderRadius: '50%', background: 'rgba(0,0,0,0.05)', pointerEvents: 'none' }} />
               <span style={{ fontSize: 32 }}>{f.icon}</span>
-              <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 700, color: f.fg, marginBottom: 4 }}>{f.title}</div>
-                <div style={{ fontSize: 12, fontWeight: 600, color: f.fg, opacity: 0.60, letterSpacing: '0.05em', textTransform: 'uppercase' }}>{f.sub}</div>
-              </div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 700, color: f.fg }}>{f.title}</div>
             </motion.button>
           ))}
         </div>
